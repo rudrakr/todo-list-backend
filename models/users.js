@@ -1,24 +1,20 @@
 const mongoose = require("mongoose");
 
-const listSchema = new mongoose.Schema({
-  listNumber:Number,
-  listName: {
+const userSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true
   },
-  isMandatory: {
-    type: Boolean
-  },
-  completed:Boolean
-})
-const todoSchema = new mongoose.Schema({
-  id: {
-    required: true,
+  email: {
     type: String,
+    required: true,
     unique: true
   },
-  lists: [listSchema]
+  password: {
+    type: String,
+    required: true
+  }
 })
 
-const Todos = new mongoose.model('todos', todoSchema);
-module.exports = Todos;
+const Users = new mongoose.model('Users', userSchema);
+module.exports = Users;
