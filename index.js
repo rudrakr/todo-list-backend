@@ -2,15 +2,13 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const bodyParser = require('body-parser');
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 // support parsing of application/json type post data
 app.use(bodyParser.json());
 
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const buildPath = path.join(__dirname, 'build')
-app.use(express.static(buildPath))
 
 //FOR GETTING THE MONGO CONNECTION
 require('./db/conn');
