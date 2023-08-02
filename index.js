@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const bodyParser = require('body-parser');
-
+const port = process.env.port || 3000;
 // support parsing of application/json type post data
 app.use(bodyParser.json());
 
@@ -25,6 +25,6 @@ app.use("/user", userRoute)
 const todoRoute = require('./routes/TodoRoute');
 app.use("/todo", todoRoute);
 
-app.listen(3000, function() {
-  console.log("Your app is listening on port 3000");
+app.listen(port, function () {
+  console.log("Your app is listening on port" + port);
 });
