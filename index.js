@@ -9,6 +9,9 @@ app.use(bodyParser.json());
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const buildPath = path.join(__dirname, 'build')
+app.use(express.static(buildPath))
+
 //FOR GETTING THE MONGO CONNECTION
 require('./db/conn');
 
