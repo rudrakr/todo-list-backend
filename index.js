@@ -1,8 +1,10 @@
 const express = require('express');
+const http = require('http');
 const app = express();
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
+const server = http.createServer(app);
 // support parsing of application/json type post data
 app.use(bodyParser.json());
 
